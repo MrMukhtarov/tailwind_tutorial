@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full ">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white h-full flex flex-col dark:bg-gray-900 dark:text-white">
+
+   <div class="h-15 flex-shrink-0 border-b border-gray-100 dark:border-gray-700 w-full flex justify-between items-center px-3 lg:px-5 header">
+
+
+        <button onclick="sidebar()" class="text-prototurk lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" height="30" width="40" class="fill-current"><path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z"/></svg>
+        </button>
+
+        <a href="#" class="text-2xl font-medium inline-flex items-center text-prototurk dark:text-white">
+            ./prototurk
+            <span class="text-sm  text-gray-400 ml-2 hidden lg:inline">v2.5.0</span>
+        </a>
+        <form action="" class="w-1/3 hidden lg:block">
+            <input type="text" placeholder="Search..." class="w-full  bg-gray-100 h-10 px-3 placeholder-gray-500 dark:placeholder-gray-300 dark:bg-gray-700 rounded">
+        </form>
+
+
+
+        <a href="javascript:;" onclick="modal('login-modal')" class="bg-prototurk hidden text-white h-10 inline-flex items-center px-[18px] rounded">
+            Giriş Yap
+        </a>
+
+        <div class="group relative">
+            <button class="flex items-center h-10  rounded text-sm">
+                <img class="rounded-full" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYWFRgWFhUYGRgaGhoYGhwaGBgYGBwaHBgZGRgaGBgcIS4lHB4rIRoYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHxISHjQhJSs0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0PzQ/Pz80NDQ0Mf/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQACAwYBB//EADkQAAEDAgMFBwMDAwQDAQAAAAEAAhEDIQQSMQVBUWFxIoGRobHB8AYT0RQy4UJS8SNicoIWF9IV/8QAGQEAAwEBAQAAAAAAAAAAAAAAAQIDBAAF/8QAJBEAAgICAwACAwADAAAAAAAAAAECERIhAzFBEyIEMlEzYXH/2gAMAwEAAhEDEQA/APsT0HWaN69rV4WLqkpuib2yVA2IXNbUlpJDkyxlUjRKMS+Qoc0k1Q8UDYbEO1KviKZcOaFY+CiHVSoRkpKmO0Y06uU3WzsXNpQxKze0SCuknFaAxrh2yFhicPvWVHEwiGPLjdPSlGjkgF9MjcshRKcfpHPMNB67vFEHZLW/vqQeA/lYZ8ElL6jJWIHggKMrEp23ZtMmczyO4ei1bSpN0pt75JRXD62NgwHDEAK9bEiLIh7WTOTuBIHeFH0WOH7B5grUtRpHYMTuJJleOrQm7MJSH93iPwrHD0N7D1JJUmq9DgxViajS23BL3bQLCIXQ4jZdN7TkJBjiuPxmEdJBsQpScovLozTjKLDNoY51RsLnMU05kxY8tsUPiqjZVoTUrb2LFob7KwTajDm3IPFUm03loVcNtDI2Gqjn5yXQUOSnHXYZN9GVct3K2GwsiVk7DumQEXhnk24KTeKAqTo0GzgRZBvwkJ7QiNULi2BdGWTHeIn+w1REfaHFRVpC3E+pV6+ZeU6xCBfiAN61p1wVscm2GLSK418pVVKPxh4JNXqrLyTqVMtFWQrVlQQghUuiGiUElLoNmoYCsatODqruGVZm6eXVCsIwuHzCSnWF2WIBcSAhdiUwd0xqdwRG1toBmrg0cSqZKMUGMXJmuP2iyi3KP5SqjXdUObQc0pxOJNV7WtMt1nlxlGvrhgDAs+Tk7fRpUFFUNHPAF78EvrY0tvCyxWPDQL3OgQeJxIc0jf6Kc5VpDxiMWYzfO6e5aOxVrHmufwziWgyimPdEjgujN0FxG7ax4KmIdaQEIzEgMmb80O/GyI39d6KkmhaCcNtIseJNkVtbDtezOLHiJXNVqudp1DhccU12LjM7MriTb5ZKnemLyQUonP4kgb0rxESne2cLkfJcIOhuke0YgcVXijieek02g7DYWWAhM2Ma1gSeg94YNV4XvPGEXJLYsnod0riVmyk0yQYK0wDBlibrX9FmmLKb27o5xbpmGGpEk5nRwhVq081p0WrrdkoOu1zNLhCSpaOrRPsc16hPuu5qKdsXFHbVWFUo4kiyJrvEJQ6pdauTkxVoqo7HFQyEA+kjMG+QiHUgU6UZxtlVoSOoLajZE16S8pM5JEkn9TjKoydFbBYYlwHNbuYEVWrtos/3OHfHJNXrDFOToJqVGshjIt4A8TxSPbMuLQADJuXadQN692VXc+SRAB3abt/ugduYoB5cT+xh00E2HUlLN3E0xjToywFcdt2sHKO5F0WC73mALxvXL7IxDy3sCTJJnQEnej9o06tRhYH5eYG9TVIdoXfUP1BRLi1mcubeWSYje7kvdm4kPbIcbibmbrnj9MYlpIA7JntSQTNjPEFdRsHY32g3Nd0CevIKvJGCjp2xYSle+h3hqBDAOIW2Hw/ZcETSwziLgrR+HcNFJQ9GcjjNq4osaWkkEH4UJsT6kbmy1C4F2kjKDwynf1T3bmxzWbBEG8WvK4k/SVbMC5wgQJm4iwF9E/HGGLy0LKTtUdrjCBD2mWm449CVtsOsCHQe/wDK5yqKgYWMJdlvfU8QVr9KYy7wbGdPJTr0Z9UdHtKm57OzdzTMcuS5baFPQwugbispkG2sLzaFJr2ZxA6KkKvZl5eOvsL6NUZLqzqzS1BtGoVnstZI3G6Mcpb0b4bE5TMpg3aVrJG2gVuynCO0dcukE16jnEFXeTEEqjmxBBUfVBGqW2xd2Y5VFaAouxDTO2xWHMSEmqCHJ0/FWSHFu7aPNjjaKu0P9ltBATOrTC5jAYvKYTY47MFXh5IuOx07JVcJhZkwqGdZQ9WsdyOVDjDBjM690p+osV/qEHoEfsmuA+XbvgQ/1Ds4vex7LibrpbVlOJpPZrgewxrYEuueU+65L6rxTgH3sYHUnf3CfFdTn7QbyufL8rj/AKmaalZlO0Gpe0wAJPkUrq0Wj6Ofp7CNbSYAN0k8TvKY4miAJG5Z7OqNgtYLNgIh1Am+7vSNaO9A8E4vfB0bdNcFQlxcR0QtJrW9kG5NzEdyZOrZGGP6QXHuEqkIWgSke4mrl1c1vLee5DN2izQvaD3r5d9TfU9Q1HBptN76nf3TbuSU7bfE71rXDFdsz/Iz7jVbnZ2S1w4tM/4K5Pbb3ggNtmseq5f6O+pqrcRTY4y2o8Md0ccoPcYK7fbjGmq0X7WsceKzc0Mei3HKwXZ2EGQzcxO9IBQLMSco1APh/hdJkyaEhcztDHtdWsbgwfdQjeynoftE5cp4mCPNMsNQz0LJZXpF9uJBTdnYpQOC5JypITmaUaEVVhatKYBgnctqTM7SSEK9pmEI8bjdnnqNKwuqBFlP05c2VQgNFzeFVuJdEDRNF72DKzMOiygZJUoQ43Xtc5NEr7sRypm/6bmog/1hUXZI7M6j7yArkyo2reFcCVkS/pbLIyDuaZYSql9anAVsJUhNGTizo6dDl9Syza6UM+qs21lR8jbK6DXOjRH7NrFzX8A2fwk9J2YwmrGhlF8akifYK3G5Pfg0VbAGvDSXOPEnoFx7K5fWc88THfr3DTuT7GNc85Gz2rSNzd7j598JRVEPcQA0DstHAAQO9NejXHscfTDCKjpPYgmOMI//AMga6qabYtuSvZ2KawgTJ/qtx3Bc3tlraOJbVaHOkyIO8lNBZKhZOnZ9GYzO6VbFvAaQZuCDHMR+V5gMU11MPbvAPiEuxmMGkeyrFYslJ2j5btzBNY9xy5gSbyReSbtSQ3K67bZzO3fLn1SBuUuIBBK1XZBoefSWFZ91ryyAHDKJJJIvPISF3mLrCQ/+3XiOi4vYNTJB8AT7J/U2g3K/M2BlJJ5RdZea26LcejSh9Sse91N19081x2IZke5zr9vv1VdnUC1xeb6kHkd692hUD5DR3KeNOisX6dfggHAEcB+Qi8Q/sEFc5sGu57Whv7hDTy6p1jKZ7V5SxeMqI/kvpomycUwZgVhj3jNYICg0glauqSulO20YpSa7MazyV7QxECCo4hevDYSx7E43s3pPEEhWOzajxnOiX0qhmAuhwW0czC06iyNRTdnNK7E/6RRH5R/cvElIGSLMqStv1EIfCNV69MLMUppWjZ9aQsWVIVS6Ahi+6Ci2CxrScTvWxYgsK9HZ1XJRRaNUWw4IKLdinAQIuhmPVnPCn8rfQcthNMdkujQTYx5pDiKH9Xf3roKrWtpXMF143xuSpzgbGLfLq6b0jfxKo2AYBga1xdvt15IPF0Q/PIsbQia9SXQNB80Wb3AX0j4VROnodxsV7L2nXwxyhudhN2iARwc3wvzK82ntxzj2GOsb5oMf3Cx13L1nbqDKXNMkZhqJBtB15qlLZ1ao9oeWhrTnGVoAtfdAGq2wcJLfZllGUeuhhj/pb7jg9lUlj2hzeGVwkeSBb9FOg9q82Vf/ACPE4dxaGNcyScjg7KCbnIZlvTTktf8A2HViG4dgdxLnEeEe6vUUdlGtinatF+EeGE5szQ6OF4UGLL25RMWJ1vG7og8a2rVd995zOcTJ4DcI3CNFrs+TZZuXHsMNv/Q+2awCx3gxw5hZ4fAjPbQzCmHaRF0zwzMpzbvQrLJmiMQPZFPJXJ3E+qd4p5a4tKUYQE1iRxT3HPaMj3XDbfOSm3uzL+VC42vBQxkuvaSisRhGBsjVZ4zGscRl1WTa2a0qn/Tzm5S0KyTnhE5LKYimc0q5YQEjW9Cu4g1AFrphHuaYkIZr76I1lTspZI5SsDl68RWZRLsOgmi+F5WqIcOVolKol7KOeV61pKsKa0pOhdetE9BGHZCPaUv+5wRFJ8qTV7Y0b8NsyKwRl7REyULCN2Iz/ULuAMJoR2h4puSJt5oJ1MC3VLqVCxKa7RO7hJPulTa24a+nVWlpnqw/WgOvT3D8JViniS0SY1Am5TnEmN9z8lAYQXIAsjGQ7WgBlEsGa868Ey2PthhltQ5XacAUPjTeO5C0tntJkjSXH0CtCVE5RsP2oGP+WKRHCUwbuA+cULicQ9r3BhgDXhKq6g5wlxn5wVrfrIuK/gc+sC0tZcaErPA076BW2RlaYI5eOiPqYfK6Rv8A8KU5eFIxNqVOevzT5uTOg23VBYb5yRrNOvwqTZXEGwtEio7xR20HZqbhx0VGfuJ5LOoZYZ3JWraI8yuLOXp1IcQmFCpzQbKXbMIg4eCtLjSMCjSDhJUIkwsMNUOiIc06qVOyElswquymEI+q8Gwsjq9FxhygJi7VWEclbGjx3tgP338FEb94cF4nwRT44hWVeherxzliRNngeoH3WauAg0gKPoZTeIW1NyXNY5G4ZnFTkkc0EZ002M+HkcQlRCIwNbK8HuTQdUxuN1JMJx7yG1Hb9G+XuSlOH7IA43PQfPNPNoNljiOvnKT5YeOAaD4CPVVkj14NNFMWLElLcPiAJiJPkEyxDc7SBfj3pbRpEuygAAak6Jeii6LN7RtfnuH5WuQAHoiXMDd8893gg6j5uNBbre6ZM4UVsLoI17R71Z9Ds9/smFVw1j+mVZjA5gPH1hHJiuNnOuYWuBHeukwlMPidCEmxLADB7k22QbDkjJ2dWgo4ct7W7U+63cBlMcnDpofXzRzGSI4ylmEOjd4lp6GfwUiFyKtfDZ5KzBLOqHxL7OHSO/8AyiWsIYOirBWyPPKoibDU+2bTdOcZsnK3MRulLGVslSSN8pvjtrZ2ZQNQrycV2YpSpCulRa0Sq1q1rKpaSsS26mqbFilJ7N8NiDoUyaWluiUl4kIsPtZVUktFbXhPsNUWcniouyBaNXuhZZ1KouvCyyx4k6dWz1olE02IRj4KNAkISi30K3qjYPC2al8oumbJHChGmtmzlKDZuvMythiXPDBvICMYgg9jp0Cm2d978JgJVj2Qerco8bJ1jqevASPDRI8SzOwTqLfhWa8PXgqSMNl2zAi/4Me6wxNnkDdHit9gPLpadWmDx1BHur46n2iY/wAqctFov7ADmOfaYbvO/uVa0BuUb7dyjp/n8KzKcC+sLkOwRoNweFlkK+UZTzgratSJAM8/RZVKU9Qicgeq6dRzlG7OfFpsh6Qm2kbuXJE4enDhwSyfgR4XwGnf+dEFVblfm3fl1vP1RYEC+63oQUPiN44+symiRB/tZqkbrEI7FMyvA3ECF7QpHOHLfaTbsPOPL+FTjdSIc24nObTYA4FbMcMq92zTuCq06XZVppXZldelqYlDV2QUXTpxqhsUUqpMS49IGcyUXSMBYsFo3ouhbVJJW9HSjktFIPBREfdUS4yI/FMFeVR71HOhCvJJRKSlo1GqMZW3IJjSrMYZRSJ3sZUWTdEuNkFRlbBynJP0MkUdUhM/pxubEMtvJ8AbpQ/VPvo4RiB/xd6IxjbQeKP2R0e1aUAjl6rmsSIMcfW0Lrcf2jHELncXQkfOKeapnqRehd9PUwK1QjfoOe/1TLaNDfpHrxKpsLBxXfxIBjgNfO/kjNq3Ljo0JZr6jZfY5XEvA3X9UI3E5n5BeAS4+yMxFOSDxuO+Y9z3ITAYftu5kDuFykitFWwmo3QbwPULGo3tAj/K0zzWIHABaPZAHEE+qDDYO7DXkW3j50lF4Vsxb+FcMg8tfNaYdnaHLzCD2BvQZWbDZjqlguTB3jyv4wnddnYN9R/hI8M2/WfwnXRJD7A0hv3j56LLbdKGTwI9QEZh4iOX8obaVQPokbyPSCqQS0QntMRY4AtBKzpXAhaYqn2AsKL4Cfl29GOe9I3xIgIHJO9WxVWVnQdzXRhfYseL+mjWAL17V6aZOijn2g6pVUXRRNLRhlK9Q/3CvU1yDZ6HSvCQFSVk8GUiRHFy6Cm1AvXVIQ7GrYUZTpIaPHQRQxEoxgS+jSgpjTNl0o5FPjTKFi6D6SZ/qOP+w+cBKGU0fs3EFj7f1QPNIo4saMVFnT1Kl+Yt4oB4Fzwn/KYY+jEEfISR9aGu6z4zKaTrs1xNtm1Q0ucDJfoeI3e602myWtb/AHG/RIqbyxxANrkcinlCqHhjuAg8rJMrVBap2c1VGao7g0E95ho8BHiVKTQySeBI6kI3E0MheeP5lJsS8veNzfgHoppley+Gp/seeebqf5K1xD+3HFs/n1UxFmxxk+JIS5uIuDJGU+OoifDwTJBGTakx3T8+ao6i288R6/yCgNmCT2hr73I8Fs7Ewcp1EkdN480jWxZOwhuK7BHI+1ljTEXjoltKtJI5yOh1RdTGNmOHr8gd6atidDitigwdBPeUrw+Ic830ugnve8RreT1m3umFCllCZ9E2rtF8awZEoaRCYYyt2CFz1Go4kqjhX2TMMli7YbVbIXlFkqMO5asphpmU1sKk2ENGUaoSq8G6zxtRx6KmGpyEuouxE1YP908FEd+nUR+ZDWK6j4XtB8leVGWVcIYKKiqLRihiymiqTVk14RDHgoJBohC2YFiWLdlkVo5MLopjsuiHVmD/AHA+F0rpuTn6fE1mngCfJFyTOcl0dNiGZ2O5OjyXG45pYXDmD4FdvVflYI5n8lctj6YdPW/QJeZF+NiZ0O8I/Hsq4faDqTpN26HisKlAi8wb+ZQ76pH7myFFMu1Z01VzKrZBlrrg8DzSLE4UsgRoPEjT281hg8Uac5DLTfKdx4jkmFfFh7Adztx1B5Heg1s5WgGq7MW8h7D3lAsw5c4jQTP+OaZOpAfPBemjlA8gusYlKpEu3A5WjpqluJry8xuB8dERWJHQSfnel9JhJJ42HqSghWeNqEEgfuNzyCJwuFJMaz/KrRpjNPEz4aBN8GwJmLWgzC4MAdQrOG5EsfYjvCAdVF1zEANoCxSrDBNKrwQ+d38pfh3TYKybxRj59NlKj7iEcygS2UK6jdG0C6Y3Izn9TP8AKnoxeA4RvWLGFphMmkMdMSvXsa9wOizTmk+tE5Nt6BJUTX7FLj5r1Z/mj/GNhP8ApzLRYgoX7faRr2rWnTBXoZYmxOkbYanIW4o3WuHoGEazDqcuaKElyIDZSVwxFEQsyguXIjPlfhVjUz2FWiqBxkIAMRux6U1J/tk+RhJGTchYOTkjrqxlgCRYyneOKasf2SegQbWZpPD8rVJWj0oaEOIpD18kHUpT3WKc4mnEd/iUrqvaDm3ae3n7LK40y8ZANbDCARoZjqBPdoruYCGRYRmPVFNYLt/7BZQI4D5dcwlmtGp4wB5wvKlyBvO7r880qxuMcXAM0At88Ud+pgFwu7KI+eKDTOK4umADvAF+u4eRQdSnAjfZvu73RbJOUamQT118oC2FG0nhPzuTdHAVOlGU8v5R9C3n+QvGUsw6CO+BK3NORbgPNpQs5svmJS7FvIlF0yRHmPwhsa4FciTFj3yDO+FpToBoEInZdFry9jhwI81njKRBgKil9aPO/LbTMiLoplaLEIFjHAyStLudCEk8TCtM1qVbrN1Qle1IG9CurCYJSRXjHSbejf7pUS/7vNRPjH+FcJDDEUZ0W2Fo3uiaVGUa3DgBK5WqYz5W4ngdlCGfijK3LJso7ChQcKeyTk2UZUK0puXgocFP0xCpFJAthTQCtsNULHSN9j0m6yothaVXgoqW9Foyo6BjpYeC0YwMYSd6CoVOwBxA9gjdqghgA1ha/LPQi7Obx+Il5E2aJPrC5yq91R4E2Lp6wPzKPxLCA6bkm88UDkyvaf7RPf8ACoN7NMUgzCVjne07jA5gjf3r11IvIZNtXnjvj0QP3oqTpI87j2TLC1bHj+TAQkEwq4UAh0awPEfyh3Nyh5O4ZfMJrjhLQB8I09EtxbxlcD/U2fTd3LkCz3CVmhuYkRfyn/5WFbakh8aR3kmQB4XSVteWFo5x5nxuVg0dnLJ4nmYk+w71RRSFbZ1+xa2Zt9+Z3jp5I5lmnl7Qub2XWLTE6xPfZdE83n+73kpH2AwxjoGYb/XkljahJRdRhkt3a96xNMtMkWXHHuEcGucRvasXVRJVKVS7lnV1SxTs8r8uVyosHSr0RLplVaOxKqDCZ3ZkK46iCQAdUNidmulsORtbENBEi69zZiCCklNp9FVJJA//AOYVE0yv4FRL8jGzYZh0Q5RRF9gXRizVbOUUSTAi9BauUUTeIZdGTtFkNV4olX7HDuj+1nzemu0v29w9lFFuX6now6Rxm0dD1d6JZtDUdAoos7NUQCvoOv8A8ptgdD/1UUXMYNr6t6n3STaP9Hf6qKIrsRiOl+0/8vdWbu7vVqiif04OwP7z/wAh6ro36s/6+hUUSM4u/wDf84rLGfs71FEBRNhf3PXr9VFEyPI/J/yM3d+xZO3KKLjMC47Vb4LUL1RTmOjoFFFFAsf/2Q==" alt="" width="24" height="24">
+                <span class="hidden lg:inline ml-3">Nicat Muxtarov</span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="fill-current"><path d="m12 15-5-5h10Z"/></svg>
+            </button>
+            <div tabindex="0" class="opacity-0 invisible absolute top-full right-0 w-44 rounded group-focus-within:mt-1 p-1 space-y-1 bg-gray-100 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:z-10 transition-all">
+                <a href="" class="text-sm flex h-8 items.center px-3 rounded transition-colors hover:bg-gray-200">Profile</a>
+                <a href="" class="text-sm flex h-8 items.center px-3 rounded transition-colors hover:bg-gray-200">Edit Profile</a>
+                <a href="" class="text-sm flex h-8 items.center px-3 rounded transition-colors hover:bg-gray-200">Followers</a>
+                <a href="" class="text-sm flex h-8 items.center px-3 rounded transition-colors hover:bg-gray-200">Questions</a>
+                <a href="" class="text-sm flex h-8 items.center px-3 rounded transition-colors hover:bg-gray-200">Answers</a>
+                <a href="" class="text-sm flex h-8 items.center px-3 text-red-500 rounded transition-colors hover:bg-gray-200">Exit</a>
+            </div>
+        </div>
+
+   </div>
+
+   <main class="calc-h-full-15 flex">
+        <aside class="sidebar">
+            <nav class="mb-3 space-y-1">
+                <a href="#" class="nav-link active">Anasayfa</a>
+                <a href="#" class="nav-link">Akış</a>
+                <a href="#" class="nav-link">Keşfet</a>
+                <a href="#" class="nav-link">Makaleler</a>
+                <a href="#" class="nav-link">Soru & Cevap</a>
+            </nav>
+
+            <nav class="mt-3 pt-3">
+                <a href="#" class="nav-link">HTML</a>
+                <a href="#" class="nav-link">CSS</a>
+                <a href="#" class="nav-link">Javascript</a>
+                <a href="#" class="nav-link">PHP</a>
+                <a href="#" class="nav-link">MySql</a>
+                <a href="#" class="nav-link">Laravel</a>
+                <a href="#" class="nav-link">Phyton</a>
+                <a href="#" class="nav-link">Git</a>
+            </nav>
+
+            <div class="mt-auto pt-3">
+                <button onclick="darkMode()" class="bg-gray-800 dark:bg-white dark:text-gray-800 hover:bg-gray-600 w-full transition-colors text-white h-10 rounded flex items-center px-4 text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"  class="fill-current  mr-2"><path d="M14.65 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.862-2.763Q5.95 13.8 5.95 12t.688-3.388Q7.325 7.025 8.5 5.85t2.763-1.863Q12.85 3.3 14.65 3.3q.65 0 1.238.075.587.075 1.162.275-1.7 1.55-2.7 3.7-1 2.15-1 4.65 0 2.5 1 4.65 1 2.15 2.7 3.7-.575.2-1.162.275-.588.075-1.238.075Z"/></svg>
+                    <span class="hidden dark:inline">Light Mode</span>
+                    <span class="inline dark:hidden">Dark Mode</span>
+                </button>
+            </div>
+
+        </aside>
+        <section class="flex-auto py-6 px-5 md:px-10 overflow-auto">
+            <div class="mx-auto max-w-screen-xl">
+                <h2 class="text-3xl font-semibold mb-3 leading-relaxed text-prototurk">Kendine Deyer Kat!</h2>
+                <p>İyi bir kariyer için, doğru bir başlangıç gerekir. Prototürk'de bir çok dil ve teknolojiye ait derslerle doğru bir başlangıç yapmaya hazırsın!</p>
+
+                <div class="flex lg:grid overflow-x-auto grid-cols-10 mt-5 gap-3 mb-5 lg:gap-7">
+                    <div class="col-span-5 lg:col-span-2">
+                        <a href="#" class="slider-item">
+                            <span class="w-24 h-24 mb-4 border border-red-500 rounded-full grid place-items-center relative">
+                                <span class="absolute -top-0 -right-0 w-24 h-24 scale-90 bg-red-500 rounded-full -z-1 bg-opacity-10"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 0 24 24" class="fill-current text-red-700"><path d="M4.5 12.125q-1.05 0-1.775-.725Q2 10.675 2 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725Q7 8.575 7 9.625q0 1.05-.725 1.775-.725.725-1.775.725Zm4.5-4q-1.05 0-1.775-.725Q6.5 6.675 6.5 5.625q0-1.05.725-1.775Q7.95 3.125 9 3.125q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm6 0q-1.05 0-1.775-.725-.725-.725-.725-1.775 0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm4.5 4q-1.05 0-1.775-.725Q17 10.675 17 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm-12.85 10q-1.125 0-1.887-.863Q4 20.4 4 19.225q0-1.3.888-2.275.887-.975 1.762-1.925.725-.775 1.25-1.688.525-.912 1.25-1.712.55-.65 1.275-1.075.725-.425 1.575-.425t1.575.4q.725.4 1.275 1.05.7.8 1.237 1.725.538.925 1.263 1.725.875.95 1.763 1.925.887.975.887 2.275 0 1.175-.762 2.037-.763.863-1.888.863-1.35 0-2.675-.225-1.325-.225-2.675-.225-1.35 0-2.675.225-1.325.225-2.675.225Z"/></svg>
+                            </span>
+                            <span class="inline-flex h-10 items-center rounded px-5 text-white bg-red-500">
+                                HTML
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-span-5 lg:col-span-2">
+                        <a href="#" class="group hover:!border-green-700 slider-item">
+                            <span class="w-24 h-24 mb-4 border border-green-500 rounded-full grid place-items-center relative">
+                                <span class="absolute -top-0 -right-0 w-24 h-24 scale-90 bg-green-500 rounded-full -z-1 bg-opacity-10"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 0 24 24" class="fill-current text-green-700"><path d="M4.5 12.125q-1.05 0-1.775-.725Q2 10.675 2 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725Q7 8.575 7 9.625q0 1.05-.725 1.775-.725.725-1.775.725Zm4.5-4q-1.05 0-1.775-.725Q6.5 6.675 6.5 5.625q0-1.05.725-1.775Q7.95 3.125 9 3.125q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm6 0q-1.05 0-1.775-.725-.725-.725-.725-1.775 0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm4.5 4q-1.05 0-1.775-.725Q17 10.675 17 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm-12.85 10q-1.125 0-1.887-.863Q4 20.4 4 19.225q0-1.3.888-2.275.887-.975 1.762-1.925.725-.775 1.25-1.688.525-.912 1.25-1.712.55-.65 1.275-1.075.725-.425 1.575-.425t1.575.4q.725.4 1.275 1.05.7.8 1.237 1.725.538.925 1.263 1.725.875.95 1.763 1.925.887.975.887 2.275 0 1.175-.762 2.037-.763.863-1.888.863-1.35 0-2.675-.225-1.325-.225-2.675-.225-1.35 0-2.675.225-1.325.225-2.675.225Z"/></svg>
+                            </span>
+                            <span class="inline-flex h-10 items-center rounded px-5 text-white bg-green-500 group-hover:bg-green-700 transition-colors">
+                                HTML
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-span-5 lg:col-span-2">
+                        <a href="#" class="slider-item">
+                            <span class="w-24 h-24 mb-4 border border-pink-500 rounded-full grid place-items-center relative">
+                                <span class="absolute -top-0 -right-0 w-24 h-24 scale-90 bg-pink-500 rounded-full -z-1 bg-opacity-10"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 0 24 24" class="fill-current text-pink-700"><path d="M4.5 12.125q-1.05 0-1.775-.725Q2 10.675 2 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725Q7 8.575 7 9.625q0 1.05-.725 1.775-.725.725-1.775.725Zm4.5-4q-1.05 0-1.775-.725Q6.5 6.675 6.5 5.625q0-1.05.725-1.775Q7.95 3.125 9 3.125q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm6 0q-1.05 0-1.775-.725-.725-.725-.725-1.775 0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm4.5 4q-1.05 0-1.775-.725Q17 10.675 17 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm-12.85 10q-1.125 0-1.887-.863Q4 20.4 4 19.225q0-1.3.888-2.275.887-.975 1.762-1.925.725-.775 1.25-1.688.525-.912 1.25-1.712.55-.65 1.275-1.075.725-.425 1.575-.425t1.575.4q.725.4 1.275 1.05.7.8 1.237 1.725.538.925 1.263 1.725.875.95 1.763 1.925.887.975.887 2.275 0 1.175-.762 2.037-.763.863-1.888.863-1.35 0-2.675-.225-1.325-.225-2.675-.225-1.35 0-2.675.225-1.325.225-2.675.225Z"/></svg>
+                            </span>
+                            <span class="inline-flex h-10 items-center rounded px-5 text-white bg-pink-500">
+                                HTML
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-span-5 lg:col-span-2">
+                        <a href="#" class="slider-item">
+                            <span class="w-24 h-24 mb-4 border border-indigo-500 rounded-full grid place-items-center relative">
+                                <span class="absolute -top-0 -right-0 w-24 h-24 scale-90 bg-indigo-500 rounded-full -z-1 bg-opacity-10"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 0 24 24" class="fill-current text-indigo-700"><path d="M4.5 12.125q-1.05 0-1.775-.725Q2 10.675 2 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725Q7 8.575 7 9.625q0 1.05-.725 1.775-.725.725-1.775.725Zm4.5-4q-1.05 0-1.775-.725Q6.5 6.675 6.5 5.625q0-1.05.725-1.775Q7.95 3.125 9 3.125q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm6 0q-1.05 0-1.775-.725-.725-.725-.725-1.775 0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm4.5 4q-1.05 0-1.775-.725Q17 10.675 17 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm-12.85 10q-1.125 0-1.887-.863Q4 20.4 4 19.225q0-1.3.888-2.275.887-.975 1.762-1.925.725-.775 1.25-1.688.525-.912 1.25-1.712.55-.65 1.275-1.075.725-.425 1.575-.425t1.575.4q.725.4 1.275 1.05.7.8 1.237 1.725.538.925 1.263 1.725.875.95 1.763 1.925.887.975.887 2.275 0 1.175-.762 2.037-.763.863-1.888.863-1.35 0-2.675-.225-1.325-.225-2.675-.225-1.35 0-2.675.225-1.325.225-2.675.225Z"/></svg>
+                            </span>
+                            <span class="inline-flex h-10 items-center rounded px-5 text-white bg-indigo-500">
+                                HTML
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-span-5 lg:col-span-2">
+                        <a href="#" class="slider-item">
+                            <span class="w-24 h-24 mb-4 border border-blue-500 rounded-full grid place-items-center relative">
+                                <span class="absolute -top-0 -right-0 w-24 h-24 scale-90 bg-blue-500 rounded-full -z-1 bg-opacity-10"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" width="40px" viewBox="0 0 24 24" class="fill-current text-blue-700"><path d="M4.5 12.125q-1.05 0-1.775-.725Q2 10.675 2 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725Q7 8.575 7 9.625q0 1.05-.725 1.775-.725.725-1.775.725Zm4.5-4q-1.05 0-1.775-.725Q6.5 6.675 6.5 5.625q0-1.05.725-1.775Q7.95 3.125 9 3.125q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm6 0q-1.05 0-1.775-.725-.725-.725-.725-1.775 0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm4.5 4q-1.05 0-1.775-.725Q17 10.675 17 9.625q0-1.05.725-1.775.725-.725 1.775-.725 1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775-.725.725-1.775.725Zm-12.85 10q-1.125 0-1.887-.863Q4 20.4 4 19.225q0-1.3.888-2.275.887-.975 1.762-1.925.725-.775 1.25-1.688.525-.912 1.25-1.712.55-.65 1.275-1.075.725-.425 1.575-.425t1.575.4q.725.4 1.275 1.05.7.8 1.237 1.725.538.925 1.263 1.725.875.95 1.763 1.925.887.975.887 2.275 0 1.175-.762 2.037-.763.863-1.888.863-1.35 0-2.675-.225-1.325-.225-2.675-.225-1.35 0-2.675.225-1.325.225-2.675.225Z"/></svg>
+                            </span>
+                            <span class="inline-flex h-10 items-center rounded px-5 text-white bg-blue-500">
+                                HTML
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-twitter p-4 rounded-md text-white flex items-center flex-col lg:flex-row">
+                    <div class="flex-shrink-0 w-20 pl-0 lg:pl-2 mb-4 lg:mb-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 24 24" class="fill-current text-white"><path d="m12 22-1-3H4q-.825 0-1.412-.587Q2 17.825 2 17V4q0-.825.588-1.413Q3.175 2 4 2h6l.875 3H20q.875 0 1.438.562Q22 6.125 22 7v13q0 .825-.562 1.413Q20.875 22 20 22Zm-4.85-7.4q1.725 0 2.838-1.112Q11.1 12.375 11.1 10.6q0-.2-.012-.363-.013-.162-.063-.337h-3.95v1.55H9.3q-.2.7-.763 1.087-.562.388-1.362.388-.975 0-1.675-.7-.7-.7-.7-1.725 0-1.025.7-1.725.7-.7 1.675-.7.45 0 .85.162.4.163.725.488L9.975 7.55Q9.45 7 8.713 6.7q-.738-.3-1.563-.3-1.675 0-2.862 1.187Q3.1 8.775 3.1 10.5q0 1.725 1.188 2.912Q5.475 14.6 7.15 14.6Zm6.7.5.55-.525q-.35-.425-.637-.825-.288-.4-.563-.85Zm1.25-1.275q.7-.825 1.063-1.575.362-.75.487-1.175h-3.975l.3 1.05h1q.2.375.475.813.275.437.65.887ZM13 21h7q.45 0 .725-.288Q21 20.425 21 20V7q0-.45-.275-.725Q20.45 6 20 6h-8.825l1.175 4.05h1.975V9h1.025v1.05H19v1.025h-1.275q-.25.95-.75 1.85-.5.9-1.175 1.675l2.725 2.675L17.8 18l-2.7-2.7-.9.925L15 19Z"/></svg>
+                    </div>
+                   <div>
+                    <h6 class="text-xl mb-1">Twitter'da <strong class="font-semibold">@prototurkcom</strong> hesabını takip etmeyi unutma!</h6>
+                    <p>Hazırladığımız son videolardan anında haberdar olmak için twitter hesabımızı takip etmeyi unutma!</p>
+                    <a href="#" class="bg-white h-11 px-5 inline-flex items-center rounded text-black mt-4">Follow</a>
+                   </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <h3 class= "text-2xl mb-4">Giris yap</h3>
+            <button onclick="modal('login-modal')" class="bg-prototurk px-6 inline-flex items-center rounded h-10 text-white">Kapat</button>
+        </div>
+    </div>
+
+    <script>
+        if(localStorage.getItem('dark')){
+            document.documentElement.classList.add('dark')
+        }
+        function darkMode() {
+            document.documentElement.classList.toggle('dark');
+            if(document.documentElement.classList.contains('dark')){
+                localStorage.setItem('dark', true)
+            }else{
+                localStorage.removeItem('dark')
+            }
+        }
+
+        function modal(id) {
+            document.getElementById(id).classList.toggle('active')
+        }
+
+        function sidebar() {
+            document.querySelector('.sidebar').classList.toggle('active')
+        }
+    </script>
+
+</body>
+</html>
